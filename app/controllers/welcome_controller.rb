@@ -6,3 +6,4 @@ class WelcomeController < ApplicationController
 	@result = params[:f].to_i + params[:s].to_i
 	render :action => :index
   end
+end

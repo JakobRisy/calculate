@@ -1,9 +1,32 @@
 <%= form_tag('/calculate') do %>
-	<%= text_field_tag(:f) %>
-	<%= label_tag(:f, "First Number") %><br />
-	<%= text_field_tag(:s) %>
-	<%= label_tag(:s, "Second Number") %><br />
-	<%= text_field_tag(:r) %>
-	<%= text_field_tag(:r, @result, :disabled => true) %>
-	<%= submit_tag("Calculate") %>
+	<%= label_tag(:ueb, "Taschenrechner") %><br /><br />
+	<%= text_field_tag(:r, @result, :disabled => true, :style => "width:210px; height:100px; padding:5px 5px; margin: 0.5px;") %><br /><br />
+	<table>
+		<tr>
+			<td><%= button_tag("7", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("8", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("9", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("+", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("√", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+		</tr>
+		<tr>
+			<td><%= button_tag("4", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("5", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("6", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("-", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("^", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+		</tr>
+		<tr>
+			<td><%= button_tag("1", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("2", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("3", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("*", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td rowspan="2"><%= submit_tag("=", :style => "width:40px; height:85px; padding:5px 5px; margin: 0.5px;") %></td>
+		</tr>
+		<tr>
+			<td colspan="2"><%= button_tag("0", :style => "width:85px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag(",", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag("/", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+		</tr>
+	</table>
 <% end %>
