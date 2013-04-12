@@ -1,32 +1,60 @@
+<h1 align="center">!!! Hallo erstmal !!!</h1>
+<h2 align="center">> hier teste ich <</h2>
+<h3 align="center">Ruby on Rails</h3>
+<h4 align="center">mit einem</h4>
+<h5 align="center">Taschenrechner</h5>
+<h6 align="center">Projekt</h6>
+<h2 align="center">Beachte: Kommawerte sind mit Punkt einzugeben !</h2>
+<br>
 <%= form_tag('/calculate') do %>
-	<%= label_tag(:ueb, "Taschenrechner") %><br /><br />
-	<%= text_field_tag(:r, @result, :disabled => true, :style => "width:210px; height:100px; padding:5px 5px; margin: 0.5px;") %><br /><br />
-	<table>
+	<table align="center">
 		<tr>
-			<td><%= button_tag("7", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("8", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("9", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("+", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("√", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<th><%= label_tag(:f, "Zahl1") %></th>
+			<th><%= label_tag(:o, "Operator") %></th>
+			<th><%= label_tag(:s, "Zahl2") %></th>
+			<th><%= label_tag(:r, "Ergebnis") %></th>
 		</tr>
 		<tr>
-			<td><%= button_tag("4", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("5", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("6", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("-", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("^", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= text_field_tag(:f) %></td>
+			<td>
+				<% [ '+', '-', '*', '/', 'potenz' , 'wurzel' ].each do |operator| %>
+					<%= radio_button_tag :o, operator, @operator == operator %>
+					<%= operator.humanize %><br>
+    			<% end %>
+    		</td>
+			<td><%= text_field_tag(:s) %></td>
+			<td><%= text_field_tag(:r, @result, :disabled => true) %></td>
+		</tr>
+	</table>
+	<table align="center">
+		<tr>
+			<td colspan="5"><% text_area(:comment, :text, :size => "150x150", :disabled => 'disabled', :style => "width:150px; height:150px;") %></td>
 		</tr>
 		<tr>
-			<td><%= button_tag("1", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("2", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("3", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("*", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td rowspan="2"><%= submit_tag("=", :style => "width:40px; height:85px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag "7", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "8", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "9", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "/", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "^", {:style => "width:35px; height:30px;" } %></td>
 		</tr>
 		<tr>
-			<td colspan="2"><%= button_tag("0", :style => "width:85px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag(",", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
-			<td><%= button_tag("/", :style => "width:40px; height:40px; padding:5px 5px; margin: 0.5px;") %></td>
+			<td><%= button_tag "4", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "5", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "6", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "*", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "√", {:style => "width:35px; height:30px;" } %></td>
+		</tr>
+		<tr>
+			<td><%= button_tag "1", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "2", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "3", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "-", {:style => "width:35px; height:30px;" } %></td>
+			<td rowspan="2"><%= submit_tag "=", {:style => "padding:15px 5px; width:35px; height:65px;" } %></td>
+		</tr>
+		<tr>
+			<td colspan="2"><%= button_tag "0", {:style => "padding:0 25px; width: 75px; height:30px;" } %></td>
+			<td><%= button_tag ",", {:style => "width:35px; height:30px;" } %></td>
+			<td><%= button_tag "+", {:style => "width:35px; height:30px;" } %></td>
 		</tr>
 	</table>
 <% end %>
